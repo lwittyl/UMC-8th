@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todolist</title>
+    <style>
+      * {
+        background: rgb(235, 241, 249);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header h1 {
+        padding: 3rem;
+        text-align: center;
+      }
+      header hr {
+        width: 80%;
+        height: 1px;
+        border: 0;
+        background-color: rgb(197, 218, 248);
+      }
+      section article {
+        display: flex;
+        justify-content: center;
+      }
+      .input-box {
+        display: flex;
+        width: 60%;
+        margin: 1rem;
+        padding: 1rem;
+        border: 1.5px solid rgb(34, 91, 170);
+        border-radius: 5px;
+        font-style: italic;
+      }
+      .container {
+        width: 60%;
+      }
+      .subtitle {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      .sub {
+        text-align: center;
+        border-bottom: 2px solid rgb(197, 218, 248);
+      }
+      .task-box {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+      .task {
+        width: 200px;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid rgb(197, 218, 248);
+      }
+      button {
+        border: none;
+        background-color: rgb(197, 218, 248);
+        height: 30px;
+        margin: 12px 0;
+      }
+      .todo {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .done {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>UMC Study Plan</h1>
+      <hr />
+    </header>
+    <section>
+      <article>
+        <input
+          type="text"
+          id="input-box"
+          class="input-box"
+          placeholder="스터디 계획을 작성해보세요!"
+          id="taskInput"
+        />
+      </article>
+      <article>
+        <div class="container">
+          <div class="subtitle">
+            <h4 class="sub"><b>해야 할 일</b></h4>
+            <h4 class="sub"><b>해낸 일</b></h4>
+          </div>
+          <div class="task-box">
+            <div class="todo" id="todoList"></div>
+            <div class="done" id="doneList"></div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <script type="module" src="./todo.js"></script>
+  </body>
+</html>
