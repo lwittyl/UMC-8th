@@ -5,8 +5,9 @@ import { Movie } from "../types/movie";
 import type { MovieResponse } from "../types/movie";
 import axios from "axios";
 import MovieCard from "./MovieCard";
-import { useSearchParams, useLocation } from "react-router-dom";
+import { useSearchParams, useLocation, useNavigate } from "react-router-dom";
 const Movies = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page") || "1";
@@ -16,6 +17,9 @@ const Movies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
+  const handleClick = (id: number) => {
+    navigate(`/movies/detail/${id}`);
+  };
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
@@ -56,13 +60,15 @@ const Movies = () => {
   }
   return (
     <div className="w-full h-full flex items-center justify-center flex-wrap gap-3">
-      {movies?.map(({ poster_path, original_title, overview }) => (
-        <MovieCard
-          key={original_title}
-          imgUrl={poster_path}
-          title={original_title}
-          description={overview}
-        />
+      {movies?.map(({ poster_path, original_title, overview, id }) => (
+        <div className="cursor-pointer" onClick={() => handleClick(id)}>
+          <MovieCard
+            key={original_title}
+            imgUrl={poster_path}
+            title={original_title}
+            description={overview}
+          />
+        </div>
       ))}
     </div>
   );

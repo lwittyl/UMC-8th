@@ -9,6 +9,7 @@ const routes = {
   upcomingLink: "/movies/upcoming",
   topRatedLink: "/movies/top_rated",
   nowPlayingLink: "/movies/now_playing",
+  movieDetail: "/movies/detail/:id",
 };
 
 export default routes;
